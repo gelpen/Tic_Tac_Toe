@@ -1,8 +1,15 @@
-# parts.py
+# gameparts/parts.py
 
 class Board:
+    """Класс, который описывает игровое поле """
+
+    # Новый атрибут.
+    field_size = 3
+
     def __init__(self):
-        self.board = [[' ' for _ in range(3)] for _ in range(3)]
+        self.board = [
+            [' ' for _ in range(self.field_size)] for _ in range(self.field_size)
+        ]
 
     def make_move(self, row, col, player):
         self.board[row][col] = player
@@ -11,3 +18,10 @@ class Board:
         for row in self.board:
             print('|'.join(row))
             print('-' * 5)
+
+    # Переопределяем метод __str__.
+    def __str__(self):
+        return (
+            'Объект игрового поля размером '
+            f'{Board.field_size}x{Board.field_size}'
+        )
