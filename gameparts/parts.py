@@ -47,6 +47,15 @@ class Board:
             return True
 
         return False
+    
+    def write_result(self, result):
+        # file_actions.py
+        # Открыть на запись файл example.txt
+        file = open('results.txt', 'a', encoding='utf-8') 
+        # Записать в файл строку.
+        file.write(result + '\n')
+        # Закрыть файл.
+        file.close()
 
     # Переопределяем метод __str__.
 
