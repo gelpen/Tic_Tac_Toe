@@ -22,7 +22,6 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Крестики-нолики')
 screen.fill(BG_COLOR)
 
-
 def draw_lines():
     for i in range(1, BOARD_SIZE):
         pygame.draw.line(
@@ -41,7 +40,6 @@ def draw_lines():
             (i * CELL_SIZE, HEIGHT),
             LINE_WIDTH
         )
-
 
 def draw_figures(board):
     for row in range(BOARD_SIZE):
@@ -82,12 +80,10 @@ def draw_figures(board):
                     O_WIDTH
                 )
 
-
 def save_result(result):
     # Если нужно явно указать кодировку, добавьте параметр encoding='utf-8'.
-    with open('results.txt', 'a') as f:
+    with open('results.txt', 'a',encoding='utf-8') as f:
         f.write(result + '\n')
-
 
 def main():
     game = Board()
@@ -128,7 +124,6 @@ def main():
         pygame.display.update()
 
     pygame.quit()
-
 
 if __name__ == '__main__':
     main()
