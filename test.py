@@ -1,17 +1,22 @@
-value = 'Глобальная value'
+# def calc(func, first, second, tchert):
+#     return func(first, second, tchert)
 
 
-def outer_function():
-    value = 'Локальная value из outer_function()'
+# # Первый аргумент при вызове calc() - это лямбда-функция с нужным выражением:
+# print(calc(lambda a, b, c: a + b + c, 5, 10, 20))   # Складываем.
+# print(calc(lambda a, b, c: a * b * c, 30, 10, 20))  # Умножаем.
+# print(calc(lambda a, b, c: (a ** b) ** c, 30, 2, 20))  # Возводим в степень.
 
-    def inner_function():
-        value = 'Локальная value из inner_function()'
-        print(value)  # Обратились к переменной value.
-        # Сперва ищем это имя в локальном пространстве имён,
-        # внутри функции inner_function(). Нашли! Печатаем.
+# |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+people = ['Антон', 'Соня', 'Коля', 'Женя', 'Тоня', 'Стёпа']
 
 
-outer_function()
+def say_to_all(func, sequence):
+    for item in sequence:
+        func(item)
 
-# Будет напечатано:
-# Локальная value из inner_function()
+
+# Этот вызов для каждого имени из списка должен напечатать
+# строчку Привет, <имя>!
+say_to_all(lambda a: print(f'Здравствуй, {a}!') if a[0] =='С' else print(f'Привет, {a}!'), people)
